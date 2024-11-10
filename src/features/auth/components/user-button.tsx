@@ -5,23 +5,26 @@ import {
   AvatarFallback,
   AvatarImage,
 } from "@/components/ui/avatar";
+import { useRouter } from "next/navigation";
+import { useCurrentUser } from "../api/use-current-user";
+import { Loader, LogOut } from "lucide-react";
+import { useAuthActions } from "@convex-dev/auth/react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { useCurrentUser } from "../api/use-current-user";
-import { Loader, LogOut } from "lucide-react";
-import { useAuthActions } from "@convex-dev/auth/react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 export const UserButton = () => {
   const { signOut } = useAuthActions();
+  const [clickLogout, setClickLogout] = useState(false);
   const { data, isLoading } = useCurrentUser();
   const router = useRouter();
 
   const handleClick = async () => {
+    setClickLogout(true);
     await signOut();
     router.replace("/auth");
   };
@@ -55,9 +58,16 @@ export const UserButton = () => {
         side="right"
         className="w-60"
       >
-        <DropdownMenuItem onClick={handleClick} className="h-10">
-          <LogOut className="size-4 mr-2 cursor-pointer" />
-          Log out
+        <DropdownMenuItem
+          onClick={handleClick}
+          className="h-10 cursor-pointer"
+        >
+          <LogOut className="size-4 mr-2 " />
+          {clickLogout ? (
+            <Loader className="size-4 animate-spin text-muted-foreground" />
+          ) : (
+            "Logout"
+          )}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
