@@ -16,7 +16,6 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from "@/components/ui/command";
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export const Toolbar = () => {
@@ -60,6 +59,7 @@ export const Toolbar = () => {
                 return (
                   <CommandItem
                     onSelect={() => onChannelCLick(channel._id)}
+                    key={channel._id}
                   >
                     {channel.name}
                   </CommandItem>
@@ -72,6 +72,7 @@ export const Toolbar = () => {
                 return (
                   <CommandItem
                     onSelect={() => onMemberCLick(member._id)}
+                    key={member._id}
                   >
                     {member.user.name}
                   </CommandItem>
