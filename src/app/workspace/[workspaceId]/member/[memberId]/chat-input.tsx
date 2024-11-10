@@ -78,7 +78,7 @@ export const ChatInput = ({
       }
 
       await createMessage(values, { throwError: true });
-    } catch (error) {
+    } catch (_error) {
       toast.error("Failed to send message");
     } finally {
       setIsPending(false);

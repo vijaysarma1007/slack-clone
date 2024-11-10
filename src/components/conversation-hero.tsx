@@ -4,8 +4,6 @@ import {
   AvatarImage,
 } from "@/components/ui/avatar";
 import { useCurrentUser } from "@/features/auth/api/use-current-user";
-import { useCurrentMember } from "@/features/members/api/use-current-memeber";
-import { useWorkspaceId } from "@/hooks/use-workspace-id";
 
 interface ConversationHeroProps {
   name?: string;
@@ -16,7 +14,6 @@ export const ConversationHero = ({
   name = "Member",
   image,
 }: ConversationHeroProps) => {
-  const workspaceId = useWorkspaceId();
   const avatarFallback = name?.charAt(0).toUpperCase();
   const { data: currentUser } = useCurrentUser();
 

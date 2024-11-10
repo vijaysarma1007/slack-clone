@@ -56,7 +56,7 @@ export const MessageList = ({
 
   const groupedMessages = data?.reduce(
     (groups, message) => {
-      const date = new Date(message?._creationTime!);
+      const date = new Date(message!._creationTime!);
       const dateKey = format(date, "yyyy-MM-dd");
       if (!groups[dateKey]) {
         groups[dateKey] = [];

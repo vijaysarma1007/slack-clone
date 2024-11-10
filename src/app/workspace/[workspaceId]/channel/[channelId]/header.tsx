@@ -47,7 +47,7 @@ export const Header = ({ title }: HeaderProps) => {
     setValue(value);
   };
 
-  const handleEditOpen = (value: boolean) => {
+  const handleEditOpen = () => {
     if (member?.role !== "admin") return;
     if (editOpen) {
       setEditOpen(false);

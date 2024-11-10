@@ -6,7 +6,6 @@ import { Info, Search } from "lucide-react";
 import { useGetChannels } from "@/features/channels/api/use-get-channels";
 import { useGetMembers } from "@/features/members/api/use-get-members";
 import {
-  Command,
   CommandDialog,
   CommandEmpty,
   CommandGroup,
@@ -14,7 +13,6 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-  CommandShortcut,
 } from "@/components/ui/command";
 import { useRouter } from "next/navigation";
 

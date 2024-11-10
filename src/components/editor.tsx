@@ -11,7 +11,7 @@ import {
   useState,
 } from "react";
 import { Button } from "./ui/button";
-import { ImageIcon, Keyboard, Smile, XIcon } from "lucide-react";
+import { ImageIcon, Smile, XIcon } from "lucide-react";
 import { Hint } from "./hint";
 import { Delta, Op } from "quill/core";
 import { cn } from "@/lib/utils";

@@ -76,7 +76,7 @@ export const ChatInput = ({ placeholder }: ChatInputProps) => {
       }
 
       await createMessage(values, { throwError: true });
-    } catch (error) {
+    } catch (_error) {
       toast.error("Failed to send message");
     } finally {
       setIsPending(false);
